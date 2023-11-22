@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<?php 
+require 'config/conexao.php';
+?>
+
 <head>
 
   <meta charset="utf-8">
@@ -319,6 +323,12 @@ https://templatemo.com/tm-574-mexant
     </div>
   </section>
 
+ 
+
+
+
+
+
   <footer>
     <div class="container">
       <div class="row">
@@ -333,6 +343,10 @@ https://templatemo.com/tm-574-mexant
       </div>
     </div>
   </footer>
+
+
+ 
+
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
@@ -390,5 +404,6 @@ https://templatemo.com/tm-574-mexant
     var swiper = new Swiper(".swiper-container", swiperOptions);
   </script>
 </body>
+
 
 </html>
