@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<?php 
-require 'config/conexao.php';
+<?php
+include 'config/conexao.php';
+switch (@$_REQUEST['page']) {
+
+
+  case "salvar":
+    $_REQUEST['acao'] = "cadastrar";
+    include 'config/salvar_usuario.php';
+    break;
+
+
+}
+
 ?>
 
 <head>
@@ -11,8 +22,7 @@ require 'config/conexao.php';
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <title>Mexant - Financial HTML5 Template</title>
 
@@ -76,7 +86,7 @@ https://templatemo.com/tm-574-mexant
   </header>
   <!-- ***** Header Area End ***** -->
 
-     
+
   <!-- ***** Main Banner Area Start ***** -->
   <div class="swiper-container" id="inicio">
     <div class="swiper-wrapper">
@@ -111,14 +121,14 @@ https://templatemo.com/tm-574-mexant
                 <div class="header-text">
                   <h2><em>Juntos,</em>construímos<br>uma cidade melhor.Comece registrando sua <em>ocorrência hoje.</em>
                   </h2>
-                   <div class="div-dec"></div>
+                  <div class="div-dec"></div>
                   <div class="buttons">
                     <div class="green-button">
                       <a href="#">Discover More</a>
                     </div>
                     <div class="orange-button">
                       <a href="#">Contact Us</a>
-                    </div> 
+                    </div>
                   </div>
                 </div>
               </div>
@@ -220,78 +230,75 @@ https://templatemo.com/tm-574-mexant
             <h6>Faça seu Cadastro</h6>
             <h4>Ajude a Melhorar sua Cidade Agora</h4>
           </div>
-
-
-        </div>
-        <form class="row g-3">
-          <div class="row">
-            <div class="col-md-6">
-              <input type="text" class="form-control" placeholder="Nome Completo" aria-label="First name">
-            </div>
-              <div class="col-md-3">
-              <input type="text" class="form-control" placeholder="CPF" aria-label="Last name">
-            </div>
-          </div>
-          <div class="col-md-6"> <br>
-            <input type="text" class="form-control" placeholder="Email" aria-label="First name">
-
-          </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label"></label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Senha" aria-label="First name">
-          </div>
-          <div class="col-12">
-            <label for="inputAddress" class="form-label"></label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Endereço">
-          </div>
-          <div class="col-12">
-            <label for="inputAddress2" class="form-label"></label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Complemento">
-          </div>
-          <div class="col-md-6">
-            <label for="inputCity" class="form-label"></label>
-            <input type="text" class="form-control" id="inputCity" placeholder="Cidade" aria-label="First name">
-          </div>
-          <div class="col-md-4">
-            <label for="inputState" class="form-label"></label>
-            <select id="inputState" class="form-select">
-              <option selected>Bairro</option>
-              <option>Centro</option>
-              <option>Zona Nova</option>
-              <option>São Francisco</option>
-              <option>Nova Tramandaí</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <label for="inputZip" class="form-label"></label>
-            <input type="text" class="form-control" id="inputZip" placeholder="CEP" aria-label="First name">
-          </div>
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Concordo com os Termos de Serviço.
-              </label>
-            </div>
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-          </div>
           
-         </form>
+          <form class="row g-3" action="?page=salvar" method="POST">
+            <div class="row">
+              <div class="col-md-6">
+              <input type="hidden" name="acao" value="cadastrar">
+                <input type="text" class="form-control" placeholder="Nome Completo" aria-label="First name" name="nome">
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="CPF" aria-label="Last name" name="cpf">
+              </div>
+            </div>
+            <div class="col-md-6"> <br>
+              <input type="text" class="form-control" placeholder="Email" aria-label="First name" name="email">
+
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label"></label>
+              <input type="password" class="form-control" id="inputPassword4" placeholder="Senha" aria-label="First name" name="senha">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label"></label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="Endereço" name="ende">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label"></label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Complemento" name="complemento">
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label"></label>
+              <input type="text" class="form-control" id="inputCity" placeholder="Cidade" aria-label="First name" name="cidade">
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label"></label>
+              <select id="inputState" class="form-select" name="bairro">
+                <option selected>Bairro</option>
+                <option>Centro</option>
+                <option>Zona Nova</option>
+                <option>São Francisco</option>
+                <option>Nova Tramandaí</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label"></label>
+              <input type="text" class="form-control" id="inputZip" placeholder="CEP" aria-label="First name" name="cep">
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  Concordo com os Termos de Serviço.
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </div>
+        </form>
       </div>
-      </div>
+    </div>
   </section>
-  
+
 
   <section class="partners">
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-sm-4 col-6">
           <div class="item">
-            <img
-              src="assets/images/sim_tra-removebg-preview.png"
-              alt="">
+            <img src="assets/images/sim_tra-removebg-preview.png" alt="">
           </div>
         </div>
         <div class="col-lg-2 col-sm-4 col-6">
@@ -323,7 +330,7 @@ https://templatemo.com/tm-574-mexant
     </div>
   </section>
 
- 
+
 
 
 
@@ -335,9 +342,7 @@ https://templatemo.com/tm-574-mexant
         <div class="col-lg-12">
           <p>Copyright © 2023 A Voz do Povo Todos os direitos reservados.
 
-            <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com"
-              target="_blank">TemplateMo</a> Distributed By <a title="CSS Templates" rel="sponsored"
-              href="https://themewagons.com" target="_blank">ThemeWagon</a>
+            <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a> Distributed By <a title="CSS Templates" rel="sponsored" href="https://themewagons.com" target="_blank">ThemeWagon</a>
           </p>
         </div>
       </div>
@@ -345,7 +350,7 @@ https://templatemo.com/tm-574-mexant
   </footer>
 
 
- 
+
 
 
   <!-- Scripts -->
@@ -374,7 +379,7 @@ https://templatemo.com/tm-574-mexant
         prevEl: ".swiper-button-prev"
       },
       on: {
-        progress: function () {
+        progress: function() {
           var swiper = this;
           for (var i = 0; i < swiper.slides.length; i++) {
             var slideProgress = swiper.slides[i].progress;
@@ -384,13 +389,13 @@ https://templatemo.com/tm-574-mexant
               "translate3d(" + innerTranslate + "px, 0, 0)";
           }
         },
-        touchStart: function () {
+        touchStart: function() {
           var swiper = this;
           for (var i = 0; i < swiper.slides.length; i++) {
             swiper.slides[i].style.transition = "";
           }
         },
-        setTransition: function (speed) {
+        setTransition: function(speed) {
           var swiper = this;
           for (var i = 0; i < swiper.slides.length; i++) {
             swiper.slides[i].style.transition = speed + "ms";

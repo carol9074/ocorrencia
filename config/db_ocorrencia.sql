@@ -31,14 +31,15 @@ USE `db_ocorrencia`;
 
 CREATE TABLE `cadastro_usuario` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `complement` varchar(255) NOT NULL,
-  `city` varchar(255) NOT NULL,
-  `neighborhood` varchar(255) NOT NULL
+  `senha` varchar(255) NOT NULL,
+  `endereco` varchar(255) NOT NULL,
+  `complemento` varchar(255) NOT NULL,
+  `cidade` varchar(255) NOT NULL,
+  `bairro` varchar(255) NOT NULL,
+  `cep` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
