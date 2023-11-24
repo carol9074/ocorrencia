@@ -5,14 +5,18 @@
 include 'config/conexao.php';
 switch (@$_REQUEST['page']) {
 
-
   case "salvar":
     $_REQUEST['acao'] = "cadastrar";
     include 'config/salvar_usuario.php';
     break;
 
-
+  case "logar":
+    $_REQUEST['acao'] = "login";
+    include 'config/login_user.php';
+    break;
 }
+
+
 
 ?>
 
@@ -181,6 +185,11 @@ https://templatemo.com/tm-574-mexant
 
 
   </section>
+  <?php 
+  if (isset($_SESSION['id'])) {
+    header('Location: config/painel.php ');
+}
+  ?>
   <section class="calculator" id="login">
     <div class="container">
       <div class="row">
@@ -194,7 +203,7 @@ https://templatemo.com/tm-574-mexant
             <h6>Voz do Povo</h6>
             <h4>Faça seu Login</h4>
           </div>
-          <form id="calculate" action="" method="get">
+          <form id="calculate" action="?page=logar" method="POST">
             <div class="row">
               <div class="col-lg-6">
               </div>
@@ -207,7 +216,7 @@ https://templatemo.com/tm-574-mexant
               <div class="col-lg-12">
                 <fieldset>
                   <label for="subject">Senha</label>
-                  <input type="subject" name="subject" id="subject" placeholder="" autocomplete="on">
+                  <input type="subject" name="senha" id="subject" placeholder="" autocomplete="on">
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -230,11 +239,11 @@ https://templatemo.com/tm-574-mexant
             <h6>Faça seu Cadastro</h6>
             <h4>Ajude a Melhorar sua Cidade Agora</h4>
           </div>
-          
+
           <form class="row g-3" action="?page=salvar" method="POST">
             <div class="row">
               <div class="col-md-6">
-              <input type="hidden" name="acao" value="cadastrar">
+                <input type="hidden" name="acao" value="cadastrar">
                 <input type="text" class="form-control" placeholder="Nome Completo" aria-label="First name" name="nome">
               </div>
               <div class="col-md-6">
@@ -286,7 +295,7 @@ https://templatemo.com/tm-574-mexant
             <div class="col-12">
               <button type="submit" class="btn btn-primary">Cadastrar</button>
             </div>
-          </div>
+        </div>
         </form>
       </div>
     </div>
