@@ -18,6 +18,8 @@ switch ($_REQUEST['acao']) {
 
         $res = $mysqli->query($sql);
 
+
+
         if ($res == true) {
             print "<script>alert('Cadastro realizado com sucesso!');</script>";
             print "<script>location.href='?page=listar';</script>";

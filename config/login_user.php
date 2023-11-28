@@ -35,7 +35,7 @@ switch ($_REQUEST['acao']) {
                     echo "logol";
                     header('Location: config/painel.php');
                 } else {
-                    echo "Falha ao logar";
+                    echo "<script>alert(\"Email ou senha invalidos!\");</script>";
                 }
             }
 }
