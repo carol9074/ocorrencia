@@ -73,7 +73,8 @@ https://templatemo.com/tm-574-mexant
                 <ul class="sub-menu">
                   <li><a href="about-us.html">Água</a></li>
                   <li><a href="our-services.html">Luz</a></li>
-                  <li><a href="contact-us.html">Ruas</a></li>
+                  <li><a href="contact-us.html">Contato</a></li>
+                  <li><a href="ruas.html">Ruas</a></li>
                 </ul>
               </li>
               <li class="scroll-to-section"><a href="#cadastre">Se cadastre</a></li>
@@ -185,10 +186,10 @@ https://templatemo.com/tm-574-mexant
 
 
   </section>
-  <?php 
+  <?php
   if (isset($_SESSION['id'])) {
     header('Location: config/painel.php ');
-}
+  }
   ?>
   <section class="calculator" id="login">
     <div class="container">
@@ -339,19 +340,13 @@ https://templatemo.com/tm-574-mexant
     </div>
   </section>
 
-
-
-
-
-
-
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2023 A Voz do Povo Todos os direitos reservados.
 
-            <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a> Distributed By <a title="CSS Templates" rel="sponsored" href="https://themewagons.com" target="_blank">ThemeWagon</a>
+
           </p>
         </div>
       </div>
