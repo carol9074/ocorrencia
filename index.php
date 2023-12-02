@@ -73,12 +73,13 @@ https://templatemo.com/tm-574-mexant
                 <ul class="sub-menu">
                   <li><a href="about-us.html">Água</a></li>
                   <li><a href="our-services.html">Luz</a></li>
-                  <li><a href="contact-us.html">Contato</a></li>
+                  <!-- <li><a href="contact-us.html">Contato</a></li> -->
                   <li><a href="ruas.html">Ruas</a></li>
+                  <li><a href="municipio.html">Municipio</a></li>
                 </ul>
               </li>
               <li class="scroll-to-section"><a href="#cadastre">Se cadastre</a></li>
-              <li><a href="contact-us.html">Suporte Técnico</a></li>
+              <li><a href="contact-us.html">Contato</a></li>
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>
