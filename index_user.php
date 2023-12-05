@@ -20,8 +20,15 @@
                   <li><a href="ruas.html">Ruas</a></li>
                   <li><a href="municipio.html">Municipio</a></li>
                 </ul>
-              <li><a href="contact-us.html">Feedback</a></li>
-            </ul>
+                <a href="javascript:void(0)">Minha Conta</a>
+                <ul class="sub-menu">
+                  <li><a href="about-us.html">Perfil</a></li>
+                  <li><a href="our-services.html">Notificações</a></li>
+                  <li><a href="contact-us.html">Feedback</a></li>
+                  <li><a href="ruas.html">Status da Ocorrencia</a></li>
+                  <li><a href="municipio.html">Sair</a></li>
+                </ul>
+             
             <a class='menu-trigger'>
               <span>Menu</span>
             </a>
