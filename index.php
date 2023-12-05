@@ -51,7 +51,6 @@ https://templatemo.com/tm-574-mexant
 
 <body>
 
-
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
@@ -307,17 +306,17 @@ https://templatemo.com/tm-574-mexant
   <section class="partners">
     <div class="container">
       <div class="row">
-        <div class="col-lg-2 col-sm-4 col-6">
+        <div class="col-lg-2 col-sm-2 col-3">
           <div class="item">
             <img src="assets/images/sim_tra-removebg-preview.png" alt="">
           </div>
         </div>
-        <div class="col-lg-2 col-sm-4 col-6">
+        <div class="col-lg-2 col-sm-2 col-3">
           <div class="item">
             <img src="assets/images/corsan_logo-removebg-preview.png" alt="">
           </div>
         </div>
-        <div class="col-lg-2 col-sm-4 col-6">
+        <div class="col-lg-2 col-sm-2 col-3">
           <div class="item">
             <img src="assets/images/ceee-removebg-preview.png" alt="">
           </div>
