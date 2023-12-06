@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <?php
+session_start();
 include 'config/conexao.php';
 switch (@$_REQUEST['page']) {
 
@@ -50,7 +51,14 @@ https://templatemo.com/tm-574-mexant
 </head>
 
 <body>
-
+  
+<?php 
+if(isset($_SESSION['id'])){
+  header('Location: index_user.php');
+}else{
+  echo 'usuario off';
+}
+?>
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
