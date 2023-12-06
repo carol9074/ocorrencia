@@ -12,7 +12,7 @@
 <h1>Seja bem vindo! <?php echo $_SESSION['nome'];?></h1>
 
 
-<a href="config/logout.php">Logout</a>
+<a href="logout.php">Logout</a>
     
 </body>
 </html>
