@@ -101,7 +101,7 @@ https://templatemo.com/tm-574-mexant
             <div class="row">
               <div class="col-lg-8">
                 <div class="header-text">
-                  <h2><em>Bem-vindo </em>ao nosso site de ocorrências da cidade,<br>sua plataforma para fazer <em>a
+                  <h2><em>Bem-vindo </em>ao site de ocorrências da cidade,<br>sua plataforma para fazer <em>a
                       diferença na comunidade.</em></h2>
                   <div class="div-dec"></div>
                   <div class="buttons">
