@@ -15,10 +15,7 @@ switch (@$_REQUEST['page']) {
     $_REQUEST['acao'] = "login";
     include 'config/login_user.php';
     break;
-}
-
-
-
+  }
 ?>
 
 <head>
@@ -454,6 +451,5 @@ if(isset($_SESSION['id'])){
     var swiper = new Swiper(".swiper-container", swiperOptions);
   </script>
 </body>
-
 
 </html>
