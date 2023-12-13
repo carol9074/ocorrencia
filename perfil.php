@@ -8,8 +8,6 @@ switch (@$_REQUEST['page']) {
       break;
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +31,7 @@ switch (@$_REQUEST['page']) {
 <body>
   <form class="row g-3" action="?page=editar" method="POST">
     <div class="row">
-      <div class="col-md-6"> <br>
+      <div class="col-md-4"> <br>
         <input type="text" class="form-control" placeholder="Email" aria-label="First name" name="email">
       </div>
       <div class="col-md-6">
