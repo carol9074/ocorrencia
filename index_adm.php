@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -20,13 +20,13 @@
   <link rel="stylesheet" href="assets/css/owl.css">
   <link rel="stylesheet" href="assets/css/animate.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-  <title>Teste Usuario!</title>
+  <title>Teste ADM!</title>
 </head>
 
 
 <body>
 
-<header class="header-area header-sticky">
+  <header class="header-area header-sticky">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -39,7 +39,7 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#inicio" class="active">Inicio</a></li>
-              <li class="scroll-to-section"><a href="#sobre">Sobre</a></li>
+              <!-- <li class="scroll-to-section"><a href="#sobre">Sobre</a></li> -->
               <li class="has-sub">
                 <a href="javascript:void(0)">Categorias</a>
                 <ul class="sub-menu">
@@ -50,21 +50,21 @@
                 </ul>
               </li>
 
-                <li class="has-sub">
-                <a href="javascript:void(0)">Minha Conta</a>
+              <li class="has-sub">
+                <a href="javascript:void(0)">Area do ADM</a>
                 <ul class="sub-menu">
                   <li><a href="about-us.html">Perfil</a></li>
-                  <li><a href="our-services.html">Notificações</a></li>
-                  <li><a href="contact-us.html">Feedback</a></li>
-                  <li><a href="ruas.html">Status</a></li>
+                  <li><a href="ocorrencias.html">Ocorrências</a></li>
+                  <!-- <li><a href="contact-us.html">Feedback</a></li>
+                  <li><a href="ruas.html">Status</a></li> -->
                   <li><a href="index.php">Sair</a></li>
-                 
                 </ul>
-                </li>
-            <a class='menu-trigger'>
-              <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
+
+              </li>
+              <a class='menu-trigger'>
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
           </nav>
         </div>
       </div>
@@ -79,7 +79,7 @@
             <div class="row">
               <div class="col-lg-8">
                 <div class="header-text">
-                  <h2><em>Bem-vindo </em>ao site de ocorrências da cidade,<br>sua plataforma para fazer <em>a
+                  <h2><em>Bem-vindo </em>ao nosso site de ocorrências da cidade,<br>sua plataforma para fazer <em>a
                       diferença na comunidade.</em></h2>
                   <div class="div-dec"></div>
                   <div class="buttons">
@@ -161,15 +161,64 @@
               site de ocorrências da cidade.</p>
           </div>
         </div>
+  </section> <br><br>
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico em Linha de Ocorrências</title>
+    <!-- Inclua a biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <!-- Adicione um elemento canvas para o gráfico -->
+    <canvas id="ocorrenciasChart" width="900" height="-500"></canvas>
+
+    <script>
+      // Dados de exemplo
+      var dadosOcorrencias = {
+        labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+        datasets: [{
+          label: 'Ocorrências Mensais',
+          data: [10, 8, 15, 5, 12], // Substitua isso pelos seus dados reais
+          fill: false, // Desativa o preenchimento abaixo da linha
+          borderColor: 'rgba(75, 192, 192, 1)', // Cor da linha
+          borderWidth: 2
+        }]
+      };
+
+      // Configurações do gráfico
+      var configuracoes = {
+        type: 'line', // Tipo de gráfico (linha)
+        data: dadosOcorrencias,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      };
+
+      // Obtém o elemento canvas e desenha o gráfico
+      var ctx = document.getElementById('ocorrenciasChart').getContext('2d');
+      var myChart = new Chart(ctx, configuracoes);
+    </script>
+  </body>
+
+  </html>
 
 
-  </section>
   <?php
   if (isset($_SESSION['id'])) {
     header('Location: config/painel.php ');
   }
   ?>
-  
+
   <section class="partners">
     <div class="container">
       <div class="row">
