@@ -31,8 +31,6 @@ switch ($_REQUEST['acao']) {
 
     case 'editar':
 
-        $nome = $_POST['nome'];
-        $cpf = $_POST['cpf'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         $ende = $_POST['ende'];
@@ -41,19 +39,17 @@ switch ($_REQUEST['acao']) {
         $bairro = $_POST['bairro'];
         $cep = $_POST['cep'];
 
-        $sql = "UPDATE user SET
-        nome='{$nome}',
-        ende='{$cpf}',
-        email='{$email}'
-        nome='{$senha}',
-        ende='{$ende}',
-        email='{$complemento}'
-        nome='{$cidade}',
-        ende='{$bairro}',
-        email='{$cep}'
-        WHERE id=" . $_REQUEST["id"];
+        $sql = "UPDATE cadastro_usuario SET
+        email='{$email}',
+        senha='{$senha}',
+        endereco='{$ende}',
+        complemento='{$complemento}',
+        cidade='{$cidade}',
+        bairro='{$bairro}',
+        cep='{$cep}'
+        WHERE id=" . $_SESSION["id"];
 
-        $res = $conn->query($sql);
+        $res = $mysqli->query($sql);
 
         if ($res == true) {
             print "<script>alert('Editado com sucesso!');</script>";
@@ -66,7 +62,7 @@ switch ($_REQUEST['acao']) {
 
     case 'excluir':
 
-        $sql = "DELETE FROM user WHERE id=" . $_REQUEST["id"];
+        $sql = "DELETE FROM cadastro_usuario WHERE id=" . $_SESSION['id'];
 
         $res = $conn->query($sql);
 

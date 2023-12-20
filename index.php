@@ -15,10 +15,7 @@ switch (@$_REQUEST['page']) {
     $_REQUEST['acao'] = "login";
     include 'config/login_user.php';
     break;
-}
-
-
-
+  }
 ?>
 
 <head>
@@ -80,7 +77,6 @@ if(isset($_SESSION['id'])){
                 <ul class="sub-menu">
                   <li><a href="about-us.html">Água</a></li>
                   <li><a href="our-services.html">Luz</a></li>
-                  <!-- <li><a href="contact-us.html">Contato</a></li> -->
                   <li><a href="ruas.html">Ruas</a></li>
                   <li><a href="municipio.html">Municipio</a></li>
                 </ul>
@@ -236,6 +232,40 @@ if(isset($_SESSION['id'])){
             </div>
           </form>
         </div>
+
+        <div id="user-content">
+        <!-- <h1>Conteúdo do Usuário Comum</h1> -->
+        <p>Bem-vindo, Usuário!</p>
+    </div>
+
+    <div id="admin-content" class="admin-content">
+        <!-- <h1>Conteúdo do Administrador</h1> -->
+        <p>Bem-vindo, Administrador!</p>
+    </div>
+
+  
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+    <a class="btn btn-primary" href="index_user.php" role="button">Usuário</a>
+   <a class="btn btn-primary" href="index_adm.php" role="button">Administrador</a>
+
+</div>
+
+    <script>
+        function toggleUserRole() {
+            var userContent = document.getElementById("user-content");
+            var adminContent = document.getElementById("admin-content");
+
+            if (userContent.style.display === "none") {
+                userContent.style.display = "block";
+                adminContent.style.display = "none";
+            } else {
+                userContent.style.display = "none";
+                adminContent.style.display = "block";
+            }
+        }
+    </script>
+
+
       </div>
     </div>
   </section>
@@ -421,6 +451,5 @@ if(isset($_SESSION['id'])){
     var swiper = new Swiper(".swiper-container", swiperOptions);
   </script>
 </body>
-
 
 </html>
