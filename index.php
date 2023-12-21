@@ -233,15 +233,7 @@ if(isset($_SESSION['id'])){
           </form>
         </div>
 
-        <div id="user-content">
-        <!-- <h1>Conteúdo do Usuário Comum</h1> -->
-        <p>Bem-vindo, Usuário!</p>
-    </div>
-
-    <div id="admin-content" class="admin-content">
-        <!-- <h1>Conteúdo do Administrador</h1> -->
-        <p>Bem-vindo, Administrador!</p>
-    </div>
+       
 
   
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">

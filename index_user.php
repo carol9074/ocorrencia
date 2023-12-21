@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="pt-br">
-=======
-<html lang="en">
-
->>>>>>> 94196109225237b185d84cf91cdb7b7762d683a3
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -54,7 +49,7 @@
                 </ul>
               </li>
 
-<<<<<<< HEAD
+
                 <li class="has-sub">
                 <a href="javascript:void(0)">Minha Conta</a>
                 <ul class="sub-menu">
@@ -66,18 +61,8 @@
                  
                 </ul>
                 </li>
-=======
-              <li class="has-sub">
-            <a href="javascript:void(0)">Minha Conta</a>
-            <ul class="sub-menu">
-              <li><a href="perfil.php">Perfil</a></li>
-              <li><a href="our-services.html">Notificações</a></li>
-              <li><a href="contact-us.html">Feedback</a></li>
-              <li><a href="ruas.html">Status</a></li>
-              <li><a href="config/logout.php">Sair</a></li>
-            </ul>
-            </li>
->>>>>>> 94196109225237b185d84cf91cdb7b7762d683a3
+
+  
             <a class='menu-trigger'>
               <span>Menu</span>
             </a>
