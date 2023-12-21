@@ -11,8 +11,6 @@ switch ($_REQUEST['acao']) {
         $bairro = $_POST['bairro'];
         $cep = $_POST['cep'];
 
-
-
         $sql = "INSERT INTO cadastro_usuario (nome, cpf, email, senha, endereco, complemento, cidade, bairro, cep) 
         VALUES ('{$nome}', '{$cpf}', '{$email}', '{$senha}', '{$endereco}', '{$complemento}', '{$cidade}', '{$bairro}', '{$cep}')";
 

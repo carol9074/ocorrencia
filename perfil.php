@@ -8,8 +8,6 @@ switch (@$_REQUEST['page']) {
       break;
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +17,7 @@ switch (@$_REQUEST['page']) {
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
+''
 <!-- Additional CSS Files -->
 <link rel="stylesheet" href="assets/css/fontawesome.css">
 <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
@@ -31,7 +28,8 @@ switch (@$_REQUEST['page']) {
 </head>
 
 <body>
-  <form class="row g-3" action="?page=editar" method="POST">
+<div class="p-3 mb-2 bg-dark text-white">
+  <form class="row g-6" action="?page=editar" method="POST">
     <div class="row">
       <div class="col-md-6"> <br>
         <input type="text" class="form-control" placeholder="Email" aria-label="First name" name="email">
@@ -71,7 +69,7 @@ switch (@$_REQUEST['page']) {
       </div>
     </div>
   </form>
-
+  </div>
 
    <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->

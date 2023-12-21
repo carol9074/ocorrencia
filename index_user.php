@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,7 +52,8 @@
               </li>
 
 
-                <li class="has-sub">
+
+              <li class="has-sub">
                 <a href="javascript:void(0)">Minha Conta</a>
                 <ul class="sub-menu">
                   <li><a href="about-us.html">Perfil</a></li>
@@ -58,15 +61,20 @@
                   <li><a href="contact-us.html">Feedback</a></li>
                   <li><a href="ruas.html">Status</a></li>
                   <li><a href="index.php">Sair</a></li>
-                 
-                </ul>
-                </li>
 
-  
-            <a class='menu-trigger'>
-              <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
+                </ul>
+              </li>
+              
+
+
+
+
+
+
+              <a class='menu-trigger'>
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
           </nav>
         </div>
       </div>
