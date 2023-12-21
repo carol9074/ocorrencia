@@ -11,7 +11,7 @@ switch ($_REQUEST['acao']) {
         $bairro = $_POST['bairro'];
         $cep = $_POST['cep'];
 
-        require_once '../helpers.php';
+        require_once '././helpers.php';
 
         $h = new helpers();
         $cpfValido = $h->validarCPF($cpf);
