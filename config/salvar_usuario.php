@@ -11,22 +11,32 @@ switch ($_REQUEST['acao']) {
         $bairro = $_POST['bairro'];
         $cep = $_POST['cep'];
 
-        $sql = "INSERT INTO cadastro_usuario (nome, cpf, email, senha, endereco, complemento, cidade, bairro, cep) 
+        require_once '../helpers.php';
+
+        $h = new helpers();
+        $cpfValido = $h->validarCPF($cpf);
+
+        if ($cpfValido == true) {
+
+            $sql = "INSERT INTO cadastro_usuario (nome, cpf, email, senha, endereco, complemento, cidade, bairro, cep) 
         VALUES ('{$nome}', '{$cpf}', '{$email}', '{$senha}', '{$endereco}', '{$complemento}', '{$cidade}', '{$bairro}', '{$cep}')";
 
-        $res = $mysqli->query($sql);
+            $res = $mysqli->query($sql);
 
 
 
-        if ($res == true) {
-            print "<script>alert('Cadastro realizado com sucesso!');</script>";
-            print "<script>location.href='?page=listar';</script>";
-        } else {
-            print "<script>alert('Cadastro não foi realizado!');</script>";
-            print "<script>location.href='?page=listar';</script>";
+            if ($res == true) {
+                print "<script>alert('Cadastro realizado com sucesso!');</script>";
+                print "<script>location.href='?page=listar';</script>";
+            } else {
+                print "<script>alert('Cadastro não foi realizado!');</script>";
+                print "<script>location.href='?page=listar';</script>";
+            }
+            break;
         }
-        break;
-
+        if ($cpfValido == false) {
+            echo "CPF INVALIDO!";
+        }
     case 'editar':
 
         $email = $_POST['email'];
