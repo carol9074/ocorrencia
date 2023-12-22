@@ -11,7 +11,7 @@ switch ($_REQUEST['acao']) {
         $bairro = $_POST['bairro'];
         $cep = $_POST['cep'];
 
-        require_once '././helpers.php';
+        include ('helpers.php');
 
         $h = new helpers();
         $cpfValido = $h->validarCPF($cpf);
@@ -32,11 +32,14 @@ switch ($_REQUEST['acao']) {
                 print "<script>alert('Cadastro não foi realizado!');</script>";
                 print "<script>location.href='?page=listar';</script>";
             }
+            
+            if ($cpfValido == false) {
+            echo "CPF INVALIDO!";
+           
+        }
             break;
         }
-        if ($cpfValido == false) {
-            echo "CPF INVALIDO!";
-        }
+        
     case 'editar':
 
         $email = $_POST['email'];

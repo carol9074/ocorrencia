@@ -53,7 +53,7 @@ https://templatemo.com/tm-574-mexant
 if(isset($_SESSION['id'])){
   header('Location: index_user.php');
 }else{
-  echo 'usuario off';
+  echo '';
 }
 ?>
   <!-- ***** Header Area Start ***** -->
