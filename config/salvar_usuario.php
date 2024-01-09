@@ -12,10 +12,8 @@ switch ($_REQUEST['acao']) {
         $cep = $_POST['cep'];
 
         include ('helpers.php');
-
         $h = new helpers();
         $cpfValido = $h->validarCPF($cpf);
-
         if ($cpfValido == true) {
 
             $sql = "INSERT INTO cadastro_usuario (nome, cpf, email, senha, endereco, complemento, cidade, bairro, cep) 
@@ -32,14 +30,12 @@ switch ($_REQUEST['acao']) {
                 print "<script>alert('Cadastro não foi realizado!');</script>";
                 print "<script>location.href='?page=listar';</script>";
             }
-            
-            if ($cpfValido == false) {
-            echo "CPF INVALIDO!";
-           
-        }
             break;
         }
-        
+        if ($cpfValido == false) {
+            echo "CPF INVALIDO!";
+            break;
+        }
     case 'editar':
 
         $email = $_POST['email'];
@@ -74,8 +70,7 @@ switch ($_REQUEST['acao']) {
     case 'excluir':
 
         $sql = "DELETE FROM cadastro_usuario WHERE id=" . $_SESSION['id'];
-
-        $res = $conn->query($sql);
+        $res = $mysqli->query($sql);
 
         if ($res == true) {
             print "<script>alert('Deletado com sucesso!');</script>";

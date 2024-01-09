@@ -2,7 +2,13 @@
 <html lang="pt-br">
 
 <?php
-session_start();
+
+
+
+if (!isset($_SESSION)) {
+  session_start();
+}
+
 include 'config/conexao.php';
 switch (@$_REQUEST['page']) {
 
