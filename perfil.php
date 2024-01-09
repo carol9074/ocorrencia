@@ -1,6 +1,10 @@
 <?php
 session_start();
 include 'config/conexao.php';
+$sql = "SELECT * FROM cadastro_usuario WHERE id =" . $_SESSION['id'];
+$res = $mysqli->query($sql);
+$row = $res->fetch_object();
+
 switch (@$_REQUEST['page']) {
     case "editar":
       $_REQUEST['acao'] = "editar";
@@ -17,7 +21,7 @@ switch (@$_REQUEST['page']) {
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-''
+
 <!-- Additional CSS Files -->
 <link rel="stylesheet" href="assets/css/fontawesome.css">
 <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
@@ -28,27 +32,32 @@ switch (@$_REQUEST['page']) {
 </head>
 
 <body>
+
+
+
+
 <div class="p-3 mb-2 bg-dark text-white">
-  <form class="row g-6" action="?page=editar" method="POST">
+  <form class="row g-6" action="?page=salvar_usuario" method="POST">
+    <input type="hidden" name="acao" value= "editar"> 
     <div class="row">
       <div class="col-md-6"> <br>
-        <input type="text" class="form-control" placeholder="Email" aria-label="First name" name="email">
+        <input type="text" class="form-control" placeholder="<?php echo $row->nome; ?>" aria-label="First name" name="nome">
       </div>
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label"></label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Senha" aria-label="First name" name="senha">
+        <input type="text" class="form-control" placeholder="<?php echo $row->cpf; ?>" aria-label="First name" name="cpf">
       </div>
       <div class="col-12">
         <label for="inputAddress" class="form-label"></label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Endereço" name="ende">
+        <input type="text" class="form-control" placeholder="<?php echo $row->email; ?>" aria-label="First name" name="email">
       </div>
       <div class="col-12">
         <label for="inputAddress2" class="form-label"></label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Complemento" name="complemento">
+        <input type="text" class="form-control" placeholder="<?php echo $row->senha; ?>" aria-label="First name" name="senha">
       </div>
       <div class="col-md-6">
         <label for="inputCity" class="form-label"></label>
-        <input type="text" class="form-control" id="inputCity" placeholder="Cidade" aria-label="First name" name="cidade">
+        <input type="text" class="form-control" placeholder="<?php echo $row->endereco; ?>" aria-label="First name" name="ende">
       </div>
       <div class="col-md-4">
         <label for="inputState" class="form-label"></label>
@@ -71,8 +80,7 @@ switch (@$_REQUEST['page']) {
   </form>
   </div>
 
-   <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
+
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

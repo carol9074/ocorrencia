@@ -11,11 +11,9 @@ switch ($_REQUEST['acao']) {
         $bairro = $_POST['bairro'];
         $cep = $_POST['cep'];
 
-        require_once '././helpers.php';
-
+        include ('helpers.php');
         $h = new helpers();
         $cpfValido = $h->validarCPF($cpf);
-
         if ($cpfValido == true) {
 
             $sql = "INSERT INTO cadastro_usuario (nome, cpf, email, senha, endereco, complemento, cidade, bairro, cep) 
@@ -36,6 +34,7 @@ switch ($_REQUEST['acao']) {
         }
         if ($cpfValido == false) {
             echo "CPF INVALIDO!";
+            break;
         }
     case 'editar':
 
@@ -72,6 +71,7 @@ switch ($_REQUEST['acao']) {
 
         $sql = "DELETE FROM cadastro_usuario WHERE id=" . $_SESSION['id'];
 
+
         $res = $mysqli->query($sql);
 
         if ($res == true) {
@@ -83,3 +83,5 @@ switch ($_REQUEST['acao']) {
         }
         break;
 }
+
+?>
