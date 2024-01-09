@@ -3,8 +3,6 @@
 class helpers{
 
 
-
-
     public function validarCPF($cpf) {
         // Remover caracteres não numéricos
         $cpf = preg_replace('/[^0-9]/', '', $cpf);
@@ -21,7 +19,7 @@ class helpers{
         if (preg_match('/^(\d)\1*$/', $cpf)) {
             return false;
         }
-    
+    echo"teste";
         return true;
     }   
 }
