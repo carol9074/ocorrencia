@@ -55,7 +55,7 @@ switch ($_REQUEST['acao']) {
         cidade='{$cidade}',
         bairro='{$bairro}',
         cep='{$cep}'
-        WHERE id=" . $_SESSION["id"];
+        WHERE id= " . $_SESSION["id"];
 
         $res = $mysqli->query($sql);
 
@@ -72,7 +72,7 @@ switch ($_REQUEST['acao']) {
 
         $sql = "DELETE FROM cadastro_usuario WHERE id=" . $_SESSION['id'];
 
-        $res = $conn->query($sql);
+        $res = $mysqli->query($sql);
 
         if ($res == true) {
             print "<script>alert('Deletado com sucesso!');</script>";

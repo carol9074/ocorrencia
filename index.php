@@ -15,7 +15,12 @@ switch (@$_REQUEST['page']) {
     $_REQUEST['acao'] = "login";
     include 'config/login_user.php';
     break;
-  }
+
+  case "sair":
+    $_REQUEST['acao'] = "sair";
+    include 'config/logout_user.php';
+    break;
+}
 ?>
 
 <head>
@@ -48,14 +53,14 @@ https://templatemo.com/tm-574-mexant
 </head>
 
 <body>
-  
-<?php 
-if(isset($_SESSION['id'])){
-  header('Location: index_user.php');
-}else{
-  echo 'usuario off';
-}
-?>
+
+  <?php
+  if (isset($_SESSION['id'])) {
+    header('Location: index_user.php');
+  } else {
+    // echo 'usuario off';
+  }
+  ?>
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
@@ -208,6 +213,26 @@ if(isset($_SESSION['id'])){
             <h6>Voz do Povo</h6>
             <h4>Faça seu Login</h4>
           </div>
+
+          <h2><p class="text-light">Escolha seu tipo de usuário:</p></h2>
+          <br>
+          
+          <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+        <p class="text-light">Usuário</p>
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+        <p class="text-light">Administrador</p>
+        </label>
+      </div>
+
+
+            </form>
+            <br>
           <form id="calculate" action="?page=logar" method="POST">
             <div class="row">
               <div class="col-lg-6">
@@ -221,44 +246,46 @@ if(isset($_SESSION['id'])){
               <div class="col-lg-12">
                 <fieldset>
                   <label for="subject">Senha</label>
-                  <input type="subject" name="senha" id="subject" placeholder="" autocomplete="on">
+                  <input type="password" name="senha" id="inputPassword4" placeholder="" autocomplete="on">
                 </fieldset>
+
               </div>
               <div class="col-lg-12">
                 <fieldset>
                   <button type="submit" id="form-submit" class="orange-button">Login</button>
+                  <a href="index_adm.php"></a>
+
                 </fieldset>
               </div>
             </div>
           </form>
         </div>
 
-       
 
-  
-    <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
-    <a class="btn btn-primary" href="index_user.php" role="button">Usuário</a>
-   <a class="btn btn-primary" href="index_adm.php" role="button">Administrador</a>
 
-</div>
 
-    <script>
-        function toggleUserRole() {
-            var userContent = document.getElementById("user-content");
-            var adminContent = document.getElementById("admin-content");
 
-            if (userContent.style.display === "none") {
-                userContent.style.display = "block";
-                adminContent.style.display = "none";
-            } else {
-                userContent.style.display = "none";
-                adminContent.style.display = "block";
-            }
-        }
-    </script>
 
 
       </div>
+
+      <script>
+        function toggleUserRole() {
+          var userContent = document.getElementById("user-content");
+          var adminContent = document.getElementById("admin-content");
+
+          if (userContent.style.display === "none") {
+            userContent.style.display = "block";
+            adminContent.style.display = "none";
+          } else {
+            userContent.style.display = "none";
+            adminContent.style.display = "block";
+          }
+        }
+      </script>
+
+
+    </div>
     </div>
   </section>
 
