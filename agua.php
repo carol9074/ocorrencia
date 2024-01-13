@@ -79,9 +79,6 @@ https://templatemo.com/tm-574-mexant
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="index.php">Inicio</a></li>
-              <li class="scroll-to-section"><a href="index.php#sobre">Sobre</a></li>
-              <li class="scroll-to-section"><a href="index.php#login">Login</a></li>
               <li class="has-sub">
                 <a href="javascript:void(0)">Categorias</a>
                 <ul class="sub-menu">
@@ -91,8 +88,8 @@ https://templatemo.com/tm-574-mexant
                   <li><a href="municipio.html">Municipio</a></li>
                 </ul>
               </li>
-              <li class="scroll-to-section"><a href="index.php#cadastre">Se cadastre</a></li>
-              <li><a href="contact-us.html"></a></li>
+              <li class="scroll-to-section"><a href="index.php#"></a></li>
+              <li><a href="index.php">Voltar</a></li>
 
             </ul>
             <a class='menu-trigger'>

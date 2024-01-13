@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
 
 include 'config/conexao.php';
 switch (@$_REQUEST['acao']) {
-    case 'enviar':
+    case 'enviar2':
        $ende_ocorrencia = $_POST ['endereco_ocorrencia'];
        $compl_ocorrencia = $_POST ['complemento_ocorrencia'];
        $cid_ocorrencia = $_POST ['cidade_ocorrencia'];
@@ -78,20 +78,17 @@ https://templatemo.com/tm-574-mexant
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="index.php">Inicio</a></li>
-              <li class="scroll-to-section"><a href="index.html#sobre">Sobre</a></li>
-              <li class="scroll-to-section"><a href="index.html#login">Login</a></li>
               <li class="has-sub">
                 <a href="javascript:void(0)">Categorias</a>
                 <ul class="sub-menu">
                   <li><a href="agua.php">Água</a></li>
                   <!-- <li><a href="our-services.html">Luz</a></li> -->
-                  <li><a href="ruas.html">Ruas</a></li>
+                  <li><a href="ruas.php">Ruas</a></li>
                   <li><a href="municipio.html">Municipio</a></li>
                 </ul>
               </li>
-              <li class="scroll-to-section"><a href="index.php#cadastre">Se Cadastre</a></li>
-              <li><a href="contact-us.html">Suporte Técnico</a></li>
+              <li class="scroll-to-section"><a href="index.php#"></a></li>
+              <li><a href="index.php">Voltar</a></li>
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>
