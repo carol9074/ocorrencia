@@ -3,8 +3,6 @@
 
 <?php
 
-
-
 if (!isset($_SESSION)) {
   session_start();
 }
@@ -94,15 +92,6 @@ if(isset($_SESSION['id'])){
               <li class="scroll-to-section"><a href="#inicio" class="active">Inicio</a></li>
               <li class="scroll-to-section"><a href="#sobre">Sobre</a></li>
               <li class="scroll-to-section"><a href="#login">Login</a></li>
-              <li class="has-sub">
-                <a href="javascript:void(0)">Categorias</a>
-                <ul class="sub-menu">
-                  <li><a href="about-us.html">Água</a></li>
-                  <li><a href="our-services.html">Luz</a></li>
-                  <li><a href="ruas.html">Ruas</a></li>
-                  <li><a href="municipio.html">Municipio</a></li>
-                </ul>
-              </li>
               <li class="scroll-to-section"><a href="#cadastre">Se cadastre</a></li>
               <li><a href="contact-us.html">Contato</a></li>
             </ul>
@@ -246,8 +235,6 @@ if(isset($_SESSION['id'])){
         <p class="text-light">Administrador</p>
         </label>
       </div>
-
-
             </form>
             <br>
           <form id="calculate" action="?page=logar" method="POST">
@@ -278,12 +265,6 @@ if(isset($_SESSION['id'])){
           </form>
         </div>
 
-
-
-
-
-
-
       </div>
 
       <script>
@@ -300,8 +281,6 @@ if(isset($_SESSION['id'])){
           }
         }
       </script>
-
-
     </div>
     </div>
   </section>
@@ -314,11 +293,10 @@ if(isset($_SESSION['id'])){
             <h6>Faça seu Cadastro</h6>
             <h4>Ajude a Melhorar sua Cidade Agora</h4>
           </div>
-
           <form class="row g-3" action="?page=salvar" method="POST">
             <div class="row">
               <div class="col-md-6">
-                <input type="hidden" name="acao" value="cadastrar">
+                <input type="hidden" name="acao" value="enviar">
                 <input type="text" class="form-control" placeholder="Nome Completo" aria-label="First name" name="nome">
               </div>
               <div class="col-md-6">

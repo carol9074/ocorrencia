@@ -1,3 +1,35 @@
+<?php 
+if (!isset($_SESSION)) {
+  session_start();
+}
+
+include 'config/conexao.php';
+switch (@$_REQUEST['acao']) {
+    case 'enviar3':
+       $ende_ocorrencia = $_POST ['endereco_ocorrencia'];
+       $compl_ocorrencia = $_POST ['complemento_ocorrencia'];
+       $cid_ocorrencia = $_POST ['cidade_ocorrencia'];
+       $bairro_ocorrencia = $_POST ['bairro_ocorrencia'];
+       $cep_ocorrencia = $_POST ['cep_ocorrencia'];
+        $comentario = $_POST['descricao'];
+        $status = $_POST['status_ocorrencia'];
+   
+
+            $sql = "INSERT INTO ocorrencia (tipo_ocorrencia, descricao,status_ocorrencia, endereco_ocorrencia,complemento_ocorrencia,cidade_ocorrencia,bairro_ocorrencia,cep_ocorrencia) 
+        VALUES ('ruas', '{$comentario}','solicitado','{$ende_ocorrencia}','{$compl_ocorrencia}','{$cid_ocorrencia}','{$bairro_ocorrencia}','{$cep_ocorrencia}')";
+
+            $res = $mysqli->query($sql);
+
+            if ($res == true) {
+                print "<script>alert('Ocorrencia realizado com sucesso!');</script>";
+                print "<script>location.href='?page=listar';</script>";
+            } else {
+                print "<script>alert('Cadastro não foi realizado!');</script>";
+                print "<script>location.href='?page=listar';</script>";
+            }
+            break;
+        }
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -53,8 +85,8 @@ https://templatemo.com/tm-574-mexant
                             <li class="has-sub">
                                 <a href="javascript:void(0)">Categorias</a>
                                 <ul class="sub-menu">
-                                    <li><a href="about-us.html">Água</a></li>
-                                    <li><a href="our-services.html">Luz</a></li>
+                                    <li><a href="agua.php">Água</a></li>
+                                    <li><a href="luz.php">Luz</a></li>
                                     <li><a href="contact-us.html">Contato</a></li>
                                 </ul>
                             </li>
@@ -204,61 +236,45 @@ https://templatemo.com/tm-574-mexant
     </section>
 
     <br><br>
-
-    <form class="row g-3">
-        <div class="row">
-            <div class="col-md-6">
-                <!-- <input type="text" class="form-control" placeholder="Nome Completo" aria-label="First name"> -->
-            </div>
-
-            <div class="col-12">
-                <label for="inputAddress" class="form-label"></label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Endereço">
-            </div>
-            <div class="col-12">
-                <label for="inputAddress2" class="form-label"></label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Complemento">
-            </div>
-            <div class="col-md-6">
-                <label for="inputCity" class="form-label"></label>
-                <input type="text" class="form-control" id="inputCity" placeholder="Cidade" aria-label="First name">
-            </div>
-            <div class="col-md-4">
-                <label for="inputState" class="form-label"></label>
-                <select id="inputState" class="form-select">
-                    <option selected>Bairro</option>
-                    <option>Centro</option>
-                    <option>Zona Nova</option>
-                    <option>São Francisco</option>
-                    <option>Nova Tramandaí</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="inputZip" class="form-label"></label>
-                <input type="text" class="form-control" id="inputZip" placeholder="CEP" aria-label="First name">
-            </div>
-            <br><br><br>
-            <ul class="list-group col-md-2">
-                <li class="list-group-item">
-                    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
-                    <label class="form-check-label" for="firstCheckbox">Alagamentos e inundações</label>
-                </li> <br>
-                <li class="list-group-item">
-                    <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
-                    <label class="form-check-label" for="secondCheckbox">Buracos no asfalto</label>
-                </li> <br>
-                <li class="list-group-item">
-                    <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
-                    <label class="form-check-label" for="thirdCheckbox">Falta de sinalização adequada</label>
-                </li> <br>
-            </ul>
-
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Deixe seu Comentario" id="floatingTextarea2"
-                    style="height: 200px"></textarea>
+    <form class="row g-3" action="?page=enviar3" method="POST">
+    <div class="row">
+      <div class="col-md-6">
+      <input type="hidden" name="acao" value="enviar3">
+      <input type="hidden" name="tipo_ocorrencia" value="ruas">
+        <!-- <input type="text" class="form-control" placeholder="Nome Completo" aria-label="First name"> -->
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label"></label>
+        <input type="text" class="form-control" placeholder="endereço" aria-label="First name" name="endereco_ocorrencia">
+      </div>
+      <div class="col-12">
+        <label for="inputAddress2" class="form-label"></label>
+        <input type="text" class="form-control" placeholder="complemento" aria-label="First name" name="complemento_ocorrencia">
+      </div>
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label"></label>
+        <input type="text" class="form-control" placeholder="cidade" aria-label="First name" name="cidade_ocorrencia">
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label"></label>
+        <select id="inputState" class="form-select" name="bairro_ocorrencia">
+          <option selected>Bairro</option>
+          <option>Centro</option>
+          <option>Zona Nova</option>
+          <option>São Francisco</option>
+          <option>Nova Tramandaí</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label"></label>
+        <input type="text" class="form-control" placeholder="CEP" aria-label="First name" name="cep_ocorrencia">
+      </div>
+      <br><br><br>
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Deixe seu Comentario" id="floatingTextarea2"  name="descricao"
+          style="height: 200px"></textarea>
                 <label for="floatingTextarea2">Deixe seu Comentario</label> <br>
             </div>
-
             <div class="col-12">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -271,7 +287,6 @@ https://templatemo.com/tm-574-mexant
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
     </form>
-
     <section class="partners">
         <div class="container">
             <div class="row">

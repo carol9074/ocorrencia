@@ -1,3 +1,25 @@
+<?php
+session_start();
+include 'config/conexao.php';
+
+switch (@$_REQUEST['page']) {
+ 
+  case "enviar":
+    $_REQUEST['acao'] = "enviar";
+    include 'agua.php';
+    break;
+
+    case "enviar2":
+      $_REQUEST['acao'] = "enviar2";
+      include 'luz.php';
+      break;
+      
+      case "enviar3":
+        $_REQUEST['acao'] = "enviar3";
+        include 'ruas.php';
+        break;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <html lang="en">
@@ -13,7 +35,6 @@
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="assets/css/fontawesome.css">
   <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
@@ -22,7 +43,6 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
   <title>Teste Usuario!</title>
 </head>
-
 
 <body>
 
@@ -43,9 +63,9 @@
               <li class="has-sub">
                 <a href="javascript:void(0)">Categorias</a>
                 <ul class="sub-menu">
-                  <li><a href="about-us.html">Água</a></li>
-                  <li><a href="our-services.html">Luz</a></li>
-                  <li><a href="ruas.html">Ruas</a></li>
+                  <li><a href="agua.php">Água</a></li>
+                  <li><a href="luz.php">Luz</a></li>
+                  <li><a href="ruas.php">Ruas</a></li>
                   <li><a href="municipio.html">Municipio</a></li>
                 </ul>
               </li>
@@ -54,9 +74,9 @@
                 <a href="javascript:void(0)">Minha Conta</a>
                 <ul class="sub-menu">
                   <li><a href="perfil.php">Perfil</a></li>
-                  <li><a href="our-services.html">Notificações</a></li>
+                  <li><a href="luz.php">Notificações</a></li>
                   <li><a href="contact-us.html">Feedback</a></li>
-                  <li><a href="ruas.html">Status</a></li>
+                  <li><a href="ruas.php">Status</a></li>
                   <li><a href="config/logout.php">Sair</a></li>
 
                 </ul>
@@ -165,12 +185,6 @@
 
 
   </section>
-  <?php
-  if (isset($_SESSION['id'])) {
-    header('Location: config/painel.php ');
-  }
-  ?>
-
   <section class="partners">
     <div class="container">
       <div class="row">

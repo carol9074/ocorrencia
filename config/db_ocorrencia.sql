@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/11/2023 às 01:43
+-- Tempo de geração: 11/01/2024 às 01:41
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -20,21 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `db_ocorrencia`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `cadastro_adm`
---
-
-CREATE TABLE `cadastro_adm` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL,
-  `celular` int(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS `db_ocorrencia` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_ocorrencia`;
 
 -- --------------------------------------------------------
 
@@ -60,7 +47,9 @@ CREATE TABLE `cadastro_usuario` (
 --
 
 INSERT INTO `cadastro_usuario` (`id`, `nome`, `cpf`, `email`, `senha`, `endereco`, `complemento`, `cidade`, `bairro`, `cep`) VALUES
-(1, 'Leonardo', '12321321312', 'leonardo@leonardo.com', '123456', 'asuhsahu', 'asuhasuhasuh', 'ashuashu', 'Centro', '95555');
+(2, 'carol pereira', '12321321312', 'carolainelopespereira9074@gmail.com', '1234', 'santa amaro 1110', 'casa', 'tramandai', 'Zona Nova', '95625000'),
+(3, 'lucas oliveira', '048.044.190', 'leonardo@leonardo.com', 'dasdas', 'santa amaro 1110', 'casa', 'tramandai', 'Zona Nova', '955555'),
+(4, 'edison oliveira', '12345678912', 'edison@gmail.com', '12345', 'rubem berta 1700', 'casa', 'tramandai', 'São Francisco', '9559000');
 
 -- --------------------------------------------------------
 
@@ -84,20 +73,26 @@ CREATE TABLE `feedback` (
 CREATE TABLE `ocorrencia` (
   `id` int(11) NOT NULL,
   `tipo_ocorrencia` varchar(255) NOT NULL,
-  `descricao` int(11) NOT NULL,
+  `descricao` varchar(255) NOT NULL,
   `data_hora` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status_ocorrencia` varchar(255) NOT NULL
+  `status_ocorrencia` varchar(255) NOT NULL,
+  `endereco_ocorrencia` varchar(255) NOT NULL,
+  `complemento_ocorrencia` varchar(255) NOT NULL,
+  `cidade_ocorrencia` varchar(255) NOT NULL,
+  `bairro_ocorrencia` varchar(255) NOT NULL,
+  `cep_ocorrencia` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `ocorrencia`
+--
+
+INSERT INTO `ocorrencia` (`id`, `tipo_ocorrencia`, `descricao`, `data_hora`, `status_ocorrencia`, `endereco_ocorrencia`, `complemento_ocorrencia`, `cidade_ocorrencia`, `bairro_ocorrencia`, `cep_ocorrencia`) VALUES
+(1, 'luz', '0', '2024-01-10 22:51:50', 'andamento', '', '', '', '', 0);
 
 --
 -- Índices para tabelas despejadas
 --
-
---
--- Índices de tabela `cadastro_adm`
---
-ALTER TABLE `cadastro_adm`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices de tabela `cadastro_usuario`
@@ -122,16 +117,10 @@ ALTER TABLE `ocorrencia`
 --
 
 --
--- AUTO_INCREMENT de tabela `cadastro_adm`
---
-ALTER TABLE `cadastro_adm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `cadastro_usuario`
 --
 ALTER TABLE `cadastro_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `feedback`
@@ -143,11 +132,9 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT de tabela `ocorrencia`
 --
 ALTER TABLE `ocorrencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-

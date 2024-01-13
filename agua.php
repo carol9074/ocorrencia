@@ -1,5 +1,37 @@
+<?php 
+if (!isset($_SESSION)) {
+  session_start();
+}
+
+include 'config/conexao.php';
+switch (@$_REQUEST['acao']) {
+    case 'enviar':
+       $ende_ocorrencia = $_POST ['endereco_ocorrencia'];
+       $compl_ocorrencia = $_POST ['complemento_ocorrencia'];
+       $cid_ocorrencia = $_POST ['cidade_ocorrencia'];
+       $bairro_ocorrencia = $_POST ['bairro_ocorrencia'];
+       $cep_ocorrencia = $_POST ['cep_ocorrencia'];
+        $comentario = $_POST['descricao'];
+   
+
+            $sql = "INSERT INTO ocorrencia (tipo_ocorrencia, descricao, endereco_ocorrencia,complemento_ocorrencia,cidade_ocorrencia,bairro_ocorrencia,cep_ocorrencia) 
+        VALUES ('agua', '{$comentario}', '{$ende_ocorrencia}','{$compl_ocorrencia}','{$cid_ocorrencia}','{$bairro_ocorrencia}','{$cep_ocorrencia}')";
+
+            $res = $mysqli->query($sql);
+
+            if ($res == true) {
+                print "<script>alert('Ocorrencia realizado com sucesso!');</script>";
+                print "<script>location.href='?page=listar';</script>";
+            } else {
+                print "<script>alert('Cadastro não foi realizado!');</script>";
+                print "<script>location.href='?page=listar';</script>";
+            }
+            break;
+        }
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
 
@@ -10,7 +42,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  <title>Mexant Template - Services page</title>
+  <title>Problemas com falta de água</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,19 +80,20 @@ https://templatemo.com/tm-574-mexant
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="index.php">Inicio</a></li>
-              <li class="scroll-to-section"><a href="index.html#sobre">Sobre</a></li>
-              <li class="scroll-to-section"><a href="index.html#login">Login</a></li>
+              <li class="scroll-to-section"><a href="index.php#sobre">Sobre</a></li>
+              <li class="scroll-to-section"><a href="index.php#login">Login</a></li>
               <li class="has-sub">
                 <a href="javascript:void(0)">Categorias</a>
                 <ul class="sub-menu">
-                  <li><a href="about-us.html">Água</a></li>
-                  <!-- <li><a href="our-services.html">Luz</a></li> -->
-                  <li><a href="ruas.html">Ruas</a></li>
+                  <!-- <li><a href="about-us.html">Água</a></li> -->
+                  <li><a href="luz.php">Luz</a></li>
+                  <li><a href="ruas.php">Ruas</a></li>
                   <li><a href="municipio.html">Municipio</a></li>
                 </ul>
               </li>
-              <li class="scroll-to-section"><a href="index.php#cadastre">Se Cadastre</a></li>
-              <li><a href="contact-us.html">Suporte Técnico</a></li>
+              <li class="scroll-to-section"><a href="index.php#cadastre">Se cadastre</a></li>
+              <li><a href="contact-us.html"></a></li>
+
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>
@@ -78,7 +111,7 @@ https://templatemo.com/tm-574-mexant
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2>Problemas na Rede Elétrica</h2>
+            <h2>Problemas na Rede de Água e Esgoto</h2>
             <div class="div-dec"></div>
           </div>
         </div>
@@ -88,134 +121,90 @@ https://templatemo.com/tm-574-mexant
 
   <!-- ***** Main Banner Area End ***** -->
 
-  <section class="main-services">
+  <section class="top-section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
-          <div class="service-item">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="left-image">
-                  <img src="assets/images/img,luz.fomulario.jpg" alt="">
-                </div>
+        <div class="col-lg-6">
+          <div class="left-image">
+            <img src="assets/images/corsan trabalhando 2.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 align-self-center">
+          <div class="accordions is-first-expanded">
+            <article class="accordion">
+              <div class="accordion-head">
+                <span>Sobre o Formulário</span>
+                <span class="icon">
+                  <i class="icon fa fa-chevron-right"></i>
+                </span>
               </div>
-              <div class="col-lg-6 align-self-center">
-                <div class="right-text-content">
-                  <h4>Sobre o Formulário</h4>
-                  <p>Este formulário foi criado para coletar informações essenciais sobre problemas relacionados à luz
+              <div class="accordion-body">
+                <div class="content">
+                  <p> Este formulário foi criado para coletar informações essenciais sobre problemas relacionados à água
                     em sua área. Seu feedback é fundamental para identificar e resolver questões que afetam a qualidade,
                     o acesso e o fornecimento de água. Por favor, preencha este formulário com o máximo de detalhes
                     possível para nos ajudar a entender melhor a situação.</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="service-item">
-            <div class="row">
-              <div class="col-lg-6 align-self-center">
-                <div class="left-text-content">
-                  <h4>postes Caidos</h4>
-                  <p> A queda de postes e fios pode interromper o fornecimento de eletricidade para a área afetada. Isso
-                    pode resultar em desconforto para os residentes, além de possíveis danos a aparelhos e equipamentos
-                    eletrônicos.
-                    Inconveniência para a comunidade, impacto em empresas e serviços que dependem de
-                    eletricidade.</p>
+            </article>
+            <article class="accordion">
+              <div class="accordion-head">
+                <span>Problemas com Canos Furados</span>
+                <span class="icon">
+                  <i class="icon fa fa-chevron-right"></i>
+                </span>
+              </div>
+              <div class="accordion-body">
+                <div class="content">
+                  <p> Canos furados e vazamentos na rede de água são fontes comuns de perda de água potável, resultando
+                    em desperdício, danos ao meio ambiente e custos operacionais elevados para as autoridades
+                    responsáveis pelo abastecimento de água.
+                  </p>
                 </div>
               </div>
-              <div class="col-lg-6">
-                <div class="right-image">
-                  <img src="assets/images/054_Poste-Caindo-Santa-Terezinha-scaled.jpg" alt="">
+            </article>
+            <article class="accordion">
+              <div class="accordion-head">
+                <span>Você Fez a Diferença</span>
+                <span class="icon">
+                  <i class="icon fa fa-chevron-right"></i>
+                </span>
+              </div>
+              <div class="accordion-body">
+                <div class="content">
+                  <p>Agradecemos por dedicar seu tempo para preencher este formulário. Suas respostas ajudarão a
+                    identificar problemas de água e a desenvolver soluções eficazes para melhorar a qualidade de vida de
+                    todos.</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="service-item last-service">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="left-image">
-                  <img src="assets/images/11776_8e5624200650a5e.jpg" alt="">
-                </div>
-              </div>
-              <div class="col-lg-6 align-self-center">
-                <div class="right-text-content">
-                  <i class="fas fa-archive"></i>
-                  <h4>Fios Caidos</h4>
-                  <p>Fios elétricos caídos representam um perigo imediato de choque elétrico para pedestres, motoristas
-                    e moradores locais.
-                    Há um risco significativo de ferimentos graves ou fatais, tornando essencial a abordagem
-                    imediata da situação.</p>
-                </div>
-              </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="service-details">
-
-    <div class="col-lg-10 offset-lg-1">
-      <div class="naccs">
-        <div class="tabs">
-          <div class="row">
-          </div>
-          <div class="col-lg-12">
-            <ul class="nacc">
-              <li class="active">
-                <div>
-                  <div class="left-image">
-                    <img src="assets/images/service-details-01.jpg" alt="">
-                  </div>
-                  <div class="right-content">
-                    <h4>Comunicação com a Comunidade:</h4>
-                    <p class="fw-bold">
-                    <h5>Informar a comunidade sobre os riscos, a situação e as ações tomadas é crucial
-                      para garantir a
-                      segurança pública.
-                      A comunicação transparente mantém a população informada e ajuda a evitar comportamentos
-                      arriscados.</h5>
-                    </p>
-                    <br><br><br>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-    </div>
   </section>
 
-  <br><br>
-
-  <form class="row g-3">
+  <form class="row g-3" action="?page=enviar" method="POST">
     <div class="row">
       <div class="col-md-6">
+      <input type="hidden" name="acao" value="enviar">
+      <input type="hidden" name="tipo_ocorrencia" value="agua">
         <!-- <input type="text" class="form-control" placeholder="Nome Completo" aria-label="First name"> -->
       </div>
-
       <div class="col-12">
         <label for="inputAddress" class="form-label"></label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Endereço">
+        <input type="text" class="form-control" placeholder="endereço" aria-label="First name" name="endereco_ocorrencia">
       </div>
       <div class="col-12">
         <label for="inputAddress2" class="form-label"></label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Complemento">
+        <input type="text" class="form-control" placeholder="complemento" aria-label="First name" name="complemento_ocorrencia">
       </div>
       <div class="col-md-6">
         <label for="inputCity" class="form-label"></label>
-        <input type="text" class="form-control" id="inputCity" placeholder="Cidade" aria-label="First name">
+        <input type="text" class="form-control" placeholder="cidade" aria-label="First name" name="cidade_ocorrencia">
       </div>
       <div class="col-md-4">
         <label for="inputState" class="form-label"></label>
-        <select id="inputState" class="form-select">
+        <select id="inputState" class="form-select" name="bairro_ocorrencia">
           <option selected>Bairro</option>
           <option>Centro</option>
           <option>Zona Nova</option>
@@ -225,30 +214,14 @@ https://templatemo.com/tm-574-mexant
       </div>
       <div class="col-md-2">
         <label for="inputZip" class="form-label"></label>
-        <input type="text" class="form-control" id="inputZip" placeholder="CEP" aria-label="First name">
+        <input type="text" class="form-control" placeholder="CEP" aria-label="First name" name="cep_ocorrencia">
       </div>
       <br><br><br>
-      <ul class="list-group col-md-2">
-        <li class="list-group-item">
-          <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
-          <label class="form-check-label" for="firstCheckbox">Postes Caidos</label>
-        </li> <br>
-        <li class="list-group-item">
-          <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
-          <label class="form-check-label" for="secondCheckbox">Fios Caidos</label> 
-        </li> <br>
-        <li class="list-group-item">
-          <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
-          <label class="form-check-label" for="thirdCheckbox">Quedas de Energia</label>
-        </li> <br>
-      </ul>
-
       <div class="form-floating">
-        <textarea class="form-control" placeholder="Deixe seu Comentario" id="floatingTextarea2" 
+        <textarea class="form-control" placeholder="Deixe seu Comentario" id="floatingTextarea2"  name="descricao"
           style="height: 200px"></textarea>
         <label for="floatingTextarea2">Deixe seu Comentario</label> <br>
       </div>  
-
       <div class="col-12">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -261,7 +234,7 @@ https://templatemo.com/tm-574-mexant
         <button type="submit" class="btn btn-primary">Enviar</button>
       </div>
   </form>
-
+  
   <section class="partners">
     <div class="container">
       <div class="row">
@@ -305,7 +278,7 @@ https://templatemo.com/tm-574-mexant
         <div class="col-lg-12">
           <p>Copyright © 2023 A Voz do Povo Todos os direitos reservados.
 
-           
+            
           </p>
         </div>
       </div>
