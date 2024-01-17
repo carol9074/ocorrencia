@@ -5,7 +5,7 @@ session_start();
 switch ($_REQUEST['acao']) {
     case 'login':
      
-
+        
         if (isset($_POST['email']) || isset($_POST['senha'])) {
             if (strlen($_POST['email']) == 0) {
                 echo "<script>alert('Informe um Email!')</script>";
@@ -32,8 +32,23 @@ switch ($_REQUEST['acao']) {
         
                     $_SESSION['id'] = $usuario['id'];
                     $_SESSION['nome'] = $usuario['nome'];
+                    $_SESSION['permissao'] = $usuario['permissao'];
+
+                    var_dump('permissao');
+                    echo $permissao;
+                    switch ($usuario['permissao']) {
+                        case 1:
+                            var_dump($usuario);
+                            header('Location: index_user.php');
+                            break;
+                        case 2:
+                            header('Location: index_adm.php');
+                            break;
+                    
+                    }
+                    
                     echo "logol";
-                    header('Location: config/painel.php');
+                    //header('Location: config/painel.php');
                 } else {
                     echo "<script>alert(\"Email ou senha invalidos!\");</script>";
                 }

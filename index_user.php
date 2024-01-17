@@ -18,6 +18,12 @@ switch (@$_REQUEST['page']) {
         $_REQUEST['acao'] = "enviar3";
         include 'ruas.php';
         break;
+
+        case "enviarMensagem":
+          $_REQUEST['acao'] = "enviarMensagem";
+          echo "oi";
+          include 'feedback.php';
+          break;
 }
 ?>
 <!DOCTYPE html>
@@ -75,7 +81,7 @@ switch (@$_REQUEST['page']) {
                 <ul class="sub-menu">
                   <li><a href="perfil.php">Perfil</a></li>
                   <li><a href="luz.php">Notificações</a></li>
-                  <li><a href="contact-us.html">Feedback</a></li>
+                  <li><a href="feedback.php">Feedback</a></li>
                   <li><a href="ruas.php">Status</a></li>
                   <li><a href="config/logout.php">Sair</a></li>
 

@@ -1,3 +1,32 @@
+<?php 
+if (!isset($_SESSION)) {
+  session_start();
+}
+include 'config/conexao.php';
+switch (@$_REQUEST['acao']) {
+    case 'enviarMensagem':
+       $nome_user = $_POST ['nome_user'];
+       $email_user = $_POST ['email_user'];
+       $assunto = $_POST ['assunto'];
+       $mensagema = $_POST ['mensagem'];
+       $cell_user = $_POST ['cell_user'];
+
+            $sql = "INSERT INTO feedback (nome_user,email_user,assunto,mensagem,cell_user) 
+        VALUES ('{$nome_user}', '{$email_user}','{$assunto}','{$mensagema}','{$cell_user}')";
+
+            $res = $mysqli->query($sql);
+
+            if ($res == true) {
+                print "<script>alert('Feedback realizado com sucesso!');</script>";
+                print "<script>location.href='?page=listar';</script>";
+            } else {
+                print "<script>alert('Feedback não foi realizado!');</script>";
+                print "<script>location.href='?page=listar';</script>";
+            }
+            break;
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -45,19 +74,9 @@ https://templatemo.com/tm-574-mexant
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="index.php">Inicio</a></li>
+                          <li class="scroll-to-section"><a href="index_user.php">Inicio</a></li>
                           <li class="scroll-to-section"><a href="index.php#sobre">Sobre</a></li>
-                          <li class="scroll-to-section"><a href="index.php#login">Login</a></li>
-                          <li class="has-sub">
-                              <a href="javascript:void(0)">Categorias</a>
-                              <ul class="sub-menu">
-                                  <li><a href="about-us.html">Água</a></li>
-                                  <li><a href="our-services.html">Luz</a></li>
-                                  <li><a href="contact-us.html">Ruas</a></li>
-                                  <li><a href="municipio.html">Municipio</a></li>
-                              </ul>
-                          </li>
-                          <li class="scroll-to-section"><a href="index.php#cadastre">Voltar</a></li>
+                          <li class="scroll-to-section"><a href="index_user.php">Voltar</a></li>
                           <!-- <li><a href="contact-us.html">Suporte Técnico</a></li>  -->
                       </ul>        
                       <a class='menu-trigger'>
@@ -76,7 +95,7 @@ https://templatemo.com/tm-574-mexant
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2>Contate-nos</h2>
+            <h2>Feedback</h2>
             <div class="div-dec"></div>
           </div>
         </div>
@@ -122,7 +141,6 @@ https://templatemo.com/tm-574-mexant
       </div>
     </div>
   </section>
-
   <section class="contact-us-form">
     <div class="container">
       <div class="row">
@@ -133,37 +151,40 @@ https://templatemo.com/tm-574-mexant
           </div>
         </div>
         <div class="col-lg-10 offset-lg-1">
-          <form id="contact" action="" method="post">
+          <form id="contact" action="?page=enviarMensagem" method="POST">
             <div class="row">
+            <input type="hidden" name="acao" value="enviarMensagem">
               <div class="col-lg-6">
                 <fieldset>
-                  <input type="name" name="name" id="name" placeholder="Seu nome" autocomplete="on" required>
+                <input type="text" class="form-control" placeholder=" Seu nome" aria-label="First name" name="nome_user">
                 </fieldset>
               </div>
               <div class="col-lg-6">
                 <fieldset>
-                  <input type="phone" name="phone" id="phone" placeholder="Seu telefone" autocomplete="on" required>
+                <input type="text" class="form-control" placeholder=" Seu telefone" aria-label="First name" name="cell_user">
                 </fieldset>
               </div>
               <div class="col-lg-6">
                 <fieldset>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder=" Email" required="">
+                <input type="text" class="form-control" placeholder="Email" aria-label="First name" name="email_user">
                 </fieldset>
               </div>
               <div class="col-lg-6">
                 <fieldset>
-                  <input type="subject" name="subject" id="subject" placeholder="Assunto" autocomplete="on" >
+                <input type="text" class="form-control" placeholder="Assunto" aria-label="First name" name="assunto">
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <textarea name="message" id="message" placeholder="Mensagem"></textarea>
+                  <textarea name="message" id="message" placeholder="Mensagem" name="mensagem"></textarea>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
                   <button type="submit" id="form-submit" class="orange-button">Enviar Mensagem</button>
                 </fieldset>
+                <!-- <textarea class="form-control" placeholder="Deixe seu Comentario" id="floatingTextarea2"  name="descricao"
+          style="height: 200px"></textarea> -->
               </div>
             </div>
           </form>

@@ -32,10 +32,6 @@ switch (@$_REQUEST['page']) {
 </head>
 
 <body>
-
-
-
-
 <div class="p-3 mb-2 bg-dark text-white">
   <form class="row g-6" action="?page=salvar_usuario" method="POST">
     <input type="hidden" name="acao" value= "editar"> 
@@ -79,6 +75,41 @@ switch (@$_REQUEST['page']) {
     </div>
   </form>
   </div>
+    </style>
+</head>
+<body>
+
+    <script>
+        function openFileInput() {
+            document.getElementById('file-input').click();
+        }
+
+        function previewImage(input) {
+            var file = input.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-picture').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <script src="vendor/jquery/jquery.min.js"></script>

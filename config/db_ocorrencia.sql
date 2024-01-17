@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/01/2024 às 01:41
+-- Tempo de geração: 17/01/2024 às 01:19
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -39,17 +39,19 @@ CREATE TABLE `cadastro_usuario` (
   `complemento` varchar(255) NOT NULL,
   `cidade` varchar(255) NOT NULL,
   `bairro` varchar(255) NOT NULL,
-  `cep` varchar(255) NOT NULL
+  `cep` varchar(255) NOT NULL,
+  `permissao` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `cadastro_usuario`
 --
 
-INSERT INTO `cadastro_usuario` (`id`, `nome`, `cpf`, `email`, `senha`, `endereco`, `complemento`, `cidade`, `bairro`, `cep`) VALUES
-(2, 'carol pereira', '12321321312', 'carolainelopespereira9074@gmail.com', '1234', 'santa amaro 1110', 'casa', 'tramandai', 'Zona Nova', '95625000'),
-(3, 'lucas oliveira', '048.044.190', 'leonardo@leonardo.com', 'dasdas', 'santa amaro 1110', 'casa', 'tramandai', 'Zona Nova', '955555'),
-(4, 'edison oliveira', '12345678912', 'edison@gmail.com', '12345', 'rubem berta 1700', 'casa', 'tramandai', 'São Francisco', '9559000');
+INSERT INTO `cadastro_usuario` (`id`, `nome`, `cpf`, `email`, `senha`, `endereco`, `complemento`, `cidade`, `bairro`, `cep`, `permissao`) VALUES
+(2, 'carol pereira', '12321321312', 'carolainelopespereira9074@gmail.com', '1234', 'santa amaro 1110', 'casa', 'tramandai', 'Zona Nova', '95625000', 1),
+(3, 'lucas oliveira', '048.044.190', 'leonardo@leonardo.com', 'dasdas', 'santa amaro 1110', 'casa', 'tramandai', 'Zona Nova', '955555', 0),
+(4, 'edison oliveira', '12345678912', 'edison@gmail.com', '12345', 'rubem berta 1700', 'casa', 'tramandai', 'São Francisco', '9559000', 2),
+(5, 'andreia', '12345678912', 'edison@gmail.com', '', 'rubem berta 1700', 'casa', 'imbe', 'Centro', '95625000', 0);
 
 -- --------------------------------------------------------
 
@@ -59,6 +61,8 @@ INSERT INTO `cadastro_usuario` (`id`, `nome`, `cpf`, `email`, `senha`, `endereco
 
 CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
+  `nome_user` varchar(255) NOT NULL,
+  `email_user` varchar(255) NOT NULL,
   `assunto` varchar(255) NOT NULL,
   `mensagem` varchar(255) NOT NULL,
   `celular_user` int(11) NOT NULL
@@ -88,7 +92,9 @@ CREATE TABLE `ocorrencia` (
 --
 
 INSERT INTO `ocorrencia` (`id`, `tipo_ocorrencia`, `descricao`, `data_hora`, `status_ocorrencia`, `endereco_ocorrencia`, `complemento_ocorrencia`, `cidade_ocorrencia`, `bairro_ocorrencia`, `cep_ocorrencia`) VALUES
-(1, 'luz', '0', '2024-01-10 22:51:50', 'andamento', '', '', '', '', 0);
+(1, 'luz', '0', '2024-01-10 22:51:50', 'andamento', '', '', '', '', 0),
+(2, 'agua', 'faltou agua', '2024-01-12 22:53:42', '', 'santa amaro 123', 'casa', 'tramandai', 'São Francisco', 9559000),
+(5, 'ruas', 'teste', '2024-01-13 00:04:52', 'solicitado', 'santa amaro 126', 'casa', 'tramandai', 'Centro', 9559000);
 
 --
 -- Índices para tabelas despejadas
@@ -120,7 +126,7 @@ ALTER TABLE `ocorrencia`
 -- AUTO_INCREMENT de tabela `cadastro_usuario`
 --
 ALTER TABLE `cadastro_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `feedback`
@@ -132,7 +138,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT de tabela `ocorrencia`
 --
 ALTER TABLE `ocorrencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
