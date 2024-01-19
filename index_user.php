@@ -21,7 +21,6 @@ switch (@$_REQUEST['page']) {
 
         case "enviarMensagem":
           $_REQUEST['acao'] = "enviarMensagem";
-          echo "oi";
           include 'feedback.php';
           break;
 }
@@ -72,7 +71,6 @@ switch (@$_REQUEST['page']) {
                   <li><a href="agua.php">Água</a></li>
                   <li><a href="luz.php">Luz</a></li>
                   <li><a href="ruas.php">Ruas</a></li>
-                  <li><a href="municipio.html">Municipio</a></li>
                 </ul>
               </li>
               

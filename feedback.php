@@ -8,11 +8,13 @@ switch (@$_REQUEST['acao']) {
        $nome_user = $_POST ['nome_user'];
        $email_user = $_POST ['email_user'];
        $assunto = $_POST ['assunto'];
-       $mensagema = $_POST ['mensagem'];
-       $cell_user = $_POST ['cell_user'];
+       $mensagem = $_POST ['mensagem'];
+       $cell_user = $_POST ['celular_user'];
 
-            $sql = "INSERT INTO feedback (nome_user,email_user,assunto,mensagem,cell_user) 
-        VALUES ('{$nome_user}', '{$email_user}','{$assunto}','{$mensagema}','{$cell_user}')";
+       echo $mensagem;
+
+            $sql = "INSERT INTO feedback (nome_user,email_user,assunto,mensagem,celular_user) 
+        VALUES ('{$nome_user}', '{$email_user}','{$assunto}','{$mensagem}','{$cell_user}')";
 
             $res = $mysqli->query($sql);
 
@@ -161,7 +163,7 @@ https://templatemo.com/tm-574-mexant
               </div>
               <div class="col-lg-6">
                 <fieldset>
-                <input type="text" class="form-control" placeholder=" Seu telefone" aria-label="First name" name="cell_user">
+                <input type="text" class="form-control" placeholder="Seu telefone" aria-label="First name" name="celular_user">
                 </fieldset>
               </div>
               <div class="col-lg-6">
@@ -176,7 +178,7 @@ https://templatemo.com/tm-574-mexant
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <textarea name="message" id="message" placeholder="Mensagem" name="mensagem"></textarea>
+                  <textarea name="mensagem" id="mensagem" placeholder="Mensagem"></textarea>
                 </fieldset>
               </div>
               <div class="col-lg-12">

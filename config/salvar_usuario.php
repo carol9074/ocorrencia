@@ -35,7 +35,6 @@ switch ($_REQUEST['acao']) {
             break;
         }
     case 'editar':
-
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         $ende = $_POST['ende'];
@@ -74,7 +73,8 @@ switch ($_REQUEST['acao']) {
 
         if ($res == true) {
             print "<script>alert('Deletado com sucesso!');</script>";
-            print "<script>location.href='?page=listar';</script>";
+            print "<script>location.href='config/logout.php';</script>";
+            
         } else {
             print "<script>alert('Não foi possivel deletar!');</script>";
             print "<script>location.href='?page=listar';</script>";

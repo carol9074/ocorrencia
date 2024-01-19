@@ -179,7 +179,6 @@ https://templatemo.com/tm-574-mexant
         </div>
       </div>
   </section>
-
   <form class="row g-3" action="?page=enviar" method="POST">
     <div class="row">
       <div class="col-md-6">

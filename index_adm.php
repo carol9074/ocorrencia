@@ -41,20 +41,10 @@
               <li class="scroll-to-section"><a href="#inicio" class="active">Inicio</a></li>
               <!-- <li class="scroll-to-section"><a href="#sobre">Sobre</a></li> -->
               <li class="has-sub">
-                <a href="javascript:void(0)">Categorias</a>
-                <ul class="sub-menu">
-                  <li><a href="about-us.html">Água</a></li>
-                  <li><a href="our-services.html">Luz</a></li>
-                  <li><a href="ruas.html">Ruas</a></li>
-                  <li><a href="municipio.html">Municipio</a></li>
-                </ul>
-              </li>
-
-              <li class="has-sub">
                 <a href="javascript:void(0)">Area do ADM</a>
                 <ul class="sub-menu">
                   <li><a href="about-us.html">Perfil</a></li>
-                  <li><a href="ocorrencias.html">Ocorrências</a></li>
+                  <li><a href="ocorrencias.php">Ocorrências</a></li>
                   <!-- <li><a href="contact-us.html">Feedback</a></li>
                   <li><a href="ruas.html">Status</a></li> -->
                   <li><a href="index.php">Sair</a></li>

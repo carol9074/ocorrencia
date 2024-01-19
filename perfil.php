@@ -8,8 +8,13 @@ $row = $res->fetch_object();
 switch (@$_REQUEST['page']) {
     case "editar":
       $_REQUEST['acao'] = "editar";
-      include 'config/salvar_usuario.php';
+     include 'config/salvar_usuario.php';
       break;
+
+      case "deletar":
+        $_REQUEST['acao'] = "excluir";
+       include 'config/salvar_usuario.php';
+        break;
 }
 ?>
 <!DOCTYPE html>
@@ -33,7 +38,7 @@ switch (@$_REQUEST['page']) {
 
 <body>
 <div class="p-3 mb-2 bg-dark text-white">
-  <form class="row g-6" action="?page=salvar_usuario" method="POST">
+  <form class="row g-6" action="?page=editar" method="POST">
     <input type="hidden" name="acao" value= "editar"> 
     <div class="row">
       <div class="col-md-6"> <br>
@@ -55,35 +60,42 @@ switch (@$_REQUEST['page']) {
         <label for="inputCity" class="form-label"></label>
         <input type="text" class="form-control" placeholder="<?php echo $row->endereco; ?>" aria-label="First name" name="ende">
       </div>
+      <div class="col-md-6">
+        <label for="inputAddress2" class="form-label"></label>
+        <input type="text" class="form-control" placeholder="<?php echo $row->cidade; ?>" aria-label="First name" name="cidade">
+      </div>
+      <div class="col-md-6">
+        <label for="inputAddress2" class="form-label"></label>
+        <input type="text" class="form-control" placeholder="<?php echo $row->complemento; ?>" aria-label="First name" name="complemento">
+      </div>
       <div class="col-md-4">
         <label for="inputState" class="form-label"></label>
-        <select id="inputState" class="form-select" name="bairro">
-          <option selected>Bairro</option>
-          <option>Centro</option>
-          <option>Zona Nova</option>
-          <option>São Francisco</option>
-          <option>Nova Tramandaí</option>
-        </select>
+        <input type="text" class="form-control" placeholder="<?php echo $row->endereco; ?>" name="bairro">
       </div>
       <div class="col-md-2">
         <label for="inputZip" class="form-label"></label>
-        <input type="text" class="form-control" id="inputZip" placeholder="CEP" aria-label="First name" name="cep">
+        <input type="text" class="form-control" id="inputZip"placeholder="<?php echo $row->cep ;?>" aria-label="First name" name="cep">
+        <br>
       </div>
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Editar</button>
       </div>
-    </div>
   </form>
   </div>
+  <form class="row g-6" action="?page=deletar" method="POST">
+    <input type="hidden" name="acao" value= "excluir"> 
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Deletar</button>
+        </div>
+      </div>
+    </form>
     </style>
 </head>
 <body>
-
     <script>
         function openFileInput() {
             document.getElementById('file-input').click();
         }
-
         function previewImage(input) {
             var file = input.files[0];
             if (file) {
